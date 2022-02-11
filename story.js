@@ -561,7 +561,7 @@ utestore = {
                 if (stats["Money"].amount < 500) {
                     return buymoneyfail;
                 }
-                buysuccess;
+                return buysuccess;
             },
         },
         {
