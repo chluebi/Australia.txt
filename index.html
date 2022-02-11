@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="main.css">
+
+
+<div id="app"> 
+    <div id="title">
+        Australia.txt
+    </div>
+    <div id="game">
+        <div id="stats" class="bordered">
+            <div id="stat-list">
+                <stat
+                    v-for="s in stats"
+                    v-bind:data="s"
+                    v-bind:key="s.id"
+                ></stat>
+            </div>
+        </div>
+        <div id="scenario" class="bordered">
+            <div id="scenario-text" v-html=scenarioText>
+            </div>
+            <div id="choices">
+                <choice
+                    v-for="c in choices"
+                    v-bind:data="c"
+                    v-bind:key="c.id"
+                    v-on:click.native="clickChoice(c)"
+                    v-on:mouseover.native="hoverChoice(c)"
+                    v-on:mouseleave.native="unhoverChoice(c)"
+                ></choice>
+            </div>
+        </div>
+        <div id="items" class="bordered"> 
+            <item
+                v-for="i in items"
+                v-bind:data="i"
+                v-bind:key="i.id"
+            ></item>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="story.js"></script>
+<script src="app.js"></script>

@@ -1,0 +1,138 @@
+body {
+    background-color: black;
+}
+
+#app {
+    display: grid;
+    grid-template-areas: ". title ."
+    ". game .";
+    grid-gap: 1rem;
+
+    font-family: sans-serif;
+    color:beige;
+}
+
+.bordered {
+    border: 1px solid rgb(189, 189, 83);
+    border-radius: 0.1rem;
+
+    padding: 1rem;
+}
+
+.spaced {
+    padding: 1rem;
+}
+
+#title {
+    grid-area: title;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+}
+
+#game {
+    grid-area: game;
+
+    display: grid;
+    grid-template-areas:
+      ". stats scenario ."
+      ". stats items .";
+    grid-template-columns: auto minmax(auto, 15rem) minmax(auto, 30rem) auto;
+    grid-template-rows: minmax(auto, 30rem) auto;
+    grid-gap: 1rem;
+}
+
+#stats {
+    grid-area: stats;
+
+    grid-template-areas:
+      "stat-list"
+      ".";
+}
+
+#stat-list {
+    grid-area: stat-list;
+
+    display:grid;
+    grid-template-columns: auto;
+    grid-gap:0.7rem;
+}
+
+.stat {
+    display:grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto auto;
+}
+
+.increase {
+    color: rgb(122, 189, 83)
+}
+
+.decrease {
+    color: rgb(189, 83, 83)
+}
+
+.stat-name {
+    text-align: left;
+}
+
+.stat-amount {
+    text-align: right;
+}
+
+#scenario {
+    grid-area: scenario;
+
+    grid-template-areas:
+      "scenario-text"
+      "choices";
+
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+#scenario-text {
+    grid-area: scenario-text;
+
+    height:10rem;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#choices {
+    grid-area: choices;
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 1rem;
+    align-content: end;
+}
+
+.choice {
+    border-radius: 0.1rem;
+    border: 1px solid rgb(116, 178, 180);
+    padding: 1rem;
+
+    height: 1rem;
+
+    color: rgb(116, 178, 180);
+}
+
+.choice:hover {
+    background-color: rgb(67, 77, 77);
+    cursor: pointer;
+}
+
+
+
+#items {
+    grid-area: items;
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(auto-fit, minmax(1rem, auto));
+
+    grid-gap: 1rem;
+}
