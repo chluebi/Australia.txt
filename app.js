@@ -87,10 +87,6 @@ var app = new Vue({
             {
                 "id":0,
                 "name":"Phone"
-            },
-            {
-                "id":2,
-                "name":"Coal Company Card"
             }
         ],
         "scenario": null,
