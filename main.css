@@ -36,9 +36,9 @@ body {
 
     display: grid;
     grid-template-areas:
-      ". stats scenario ."
-      ". stats items .";
-    grid-template-columns: auto minmax(auto, 15rem) minmax(auto, 30rem) auto;
+      ". stats scenario options ."
+      ". stats items options .";
+    grid-template-columns: auto minmax(auto, 15rem) minmax(auto, 30rem) minmax(auto, 15rem) auto;
     grid-template-rows: minmax(auto, 30rem) auto;
     grid-gap: 1rem;
 }
@@ -126,6 +126,22 @@ body {
 }
 
 
+#options {
+    grid-area: options;
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(auto-fit, minmax(1rem, auto));
+
+    grid-gap: 1rem;
+    align-content: flex-start;
+}
+
+.option:hover {
+    background-color: rgb(73, 73, 61);
+    cursor: pointer;
+}
+
 
 #items {
     grid-area: items;
@@ -135,4 +151,6 @@ body {
     grid-template-rows: repeat(auto-fit, minmax(1rem, auto));
 
     grid-gap: 1rem;
+
+    align-content: flex-start;
 }

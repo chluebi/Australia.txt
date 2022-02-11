@@ -29,6 +29,11 @@
                 ></choice>
             </div>
         </div>
+        <div id="options" class="bordered">
+            <div id="text-speed" class="option bordered" v-on:click="changeTextSpeed()">
+                text speed: [[ textspeed ]]
+            </div>
+        </div>
         <div id="items" class="bordered"> 
             <item
                 v-for="i in items"

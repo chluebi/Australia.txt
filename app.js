@@ -91,7 +91,8 @@ var app = new Vue({
         ],
         "scenario": null,
         "scenarioText":"",
-        "choices": []
+        "choices": [],
+        "textspeed":"slow"
     },
     methods: {
         loadScenario: function(s) {
@@ -101,10 +102,23 @@ var app = new Vue({
             app.animateText(0);
         },
         animateText: function(char) {
+            if (app.textspeed === "instant") {
+                app.scenarioText = app.scenario.text.substring(0, app.scenario.text.length);
+                app.loadChoices();
+                return;
+            }
+
             app.scenarioText = app.scenario.text.substring(0, char);
 
+            speeds = {
+                "slow":45,
+                "fast":10,
+                "instant":1
+            }
+
+            
             if (char < app.scenario.text.length) {
-                setTimeout(function() {app.animateText(char+1)}, 25);
+                setTimeout(function() {app.animateText(char+1)}, speeds[app.textspeed]);
             } else {
                 app.loadChoices();
             }
@@ -179,6 +193,20 @@ var app = new Vue({
             }
 
             app.loadScenario(choice.next(app.statsInDict(), app.items));
+        },
+        changeTextSpeed: function() {
+            if (app.textspeed === "slow") {
+                app.textspeed = "fast";
+                return;
+            }
+            if (app.textspeed === "fast") {
+                app.textspeed = "instant";
+                return;
+            }
+            if (app.textspeed === "instant") {
+                app.textspeed = "slow";
+                return;
+            }
         }
     }
 })
