@@ -1,7 +1,5 @@
-
-
-
 # Australia.txt
+
 A Website hosting a self-made text adventure for the D-INFK game jam in 2022.
 
 # How to Use
